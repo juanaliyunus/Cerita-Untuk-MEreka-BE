@@ -44,4 +44,23 @@ public class Orphanages {
     private List<Stock> stocks;
     @OneToMany(mappedBy = "orphanages")
     private List<Feedback> feedbacks;
+
+
+    @Override
+    public String toString() {
+        return "Orphanages{" +
+                "id='" + id + '\'' +
+                ", name='" + name + '\'' +
+                ", address='" + address + '\'' +
+                ", contactPhone='" + contactPhone + '\'' +
+                ", description='" + description + '\'' +
+                ", contactEmail='" + contactEmail + '\'' +
+                ", webUrl='" + webUrl + '\'' +
+                ", status='" + status + '\'' +
+                ", avatar='" + avatar + '\'' +
+                ", createdAt=" + createdAt +
+                '}';
+    }
+
+
 }

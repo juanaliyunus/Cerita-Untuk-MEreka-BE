@@ -89,7 +89,10 @@ public class FeedbackServiceImpl implements FeedbackService {
     @Override
     public PagebleResponse<FeedbackResponse> getFeedbackByOrphanagesId(String orphanagesId,int page ,int limit) {
         Pageable pageable = PageRequest.of(page, limit);
-        var orphanages = orphanagesRepository.findById(orphanagesId).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Orphanages not found"));
+        System.out.println("test page ");
+        System.out.println(orphanagesId);
+        System.out.println("test page ");
+        var orphanages = orphanagesRepository.findById(orphanagesId).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Orphanages not found in feedback"));
         var feedback = feedbackRepository.findAllByOrphanages(orphanages,pageable);
         return PagebleResponse.<FeedbackResponse>builder()
                .total_page(feedback.getTotalPages())

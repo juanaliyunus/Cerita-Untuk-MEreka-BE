@@ -14,6 +14,7 @@ import com.example.cum.service.ValidationService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -148,7 +149,7 @@ public class DonationServiceImpl implements DonationService {
 
     @Override
     public PagebleResponse<DonationResponse> getAllDonations(int page, int limit) {
-        Pageable pageable = PageRequest.of(page, limit);
+        Pageable pageable = PageRequest.of(page, limit, Sort.by(Sort.Order.desc("createdAt")));
         var donations = donationRepository.findAll(pageable);
         return PagebleResponse.<DonationResponse>builder()
                .total_page(donations.getTotalPages())

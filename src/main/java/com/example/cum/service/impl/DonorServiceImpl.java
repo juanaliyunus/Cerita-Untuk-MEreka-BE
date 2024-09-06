@@ -78,8 +78,8 @@ public class DonorServiceImpl implements DonorService {
     }
 
     public DonorResponse getDonorByUserId(String id) {
-        User user = userRepository.findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND,"User not found"));
-        Donor donor = donorRepository.findByUser(user).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND,"Donor not found"));
+//        User user = userRepository.findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND,"User not found"));
+        Donor donor = donorRepository.findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND,"Donor not found"));
         return convert(donor);
     }
 

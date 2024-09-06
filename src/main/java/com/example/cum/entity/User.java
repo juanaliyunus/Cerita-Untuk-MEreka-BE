@@ -32,6 +32,18 @@ public class User {
     private List<Donation> donations;
 
     @Override
+    public String toString() {
+        return "User{" +
+                "donations=" + donations +
+                ", createdAt=" + createdAt +
+                ", role='" + role + '\'' +
+                ", password='" + password + '\'' +
+                ", username='" + username + '\'' +
+                ", id='" + id + '\'' +
+                '}';
+    }
+
+    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
